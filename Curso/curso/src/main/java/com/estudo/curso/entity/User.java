@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class User implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private long ID;
     private String name;
     private String email;
@@ -75,5 +76,5 @@ public class User implements Serializable {
     public int hashCode() {
         return Objects.hash(ID);
     }
-    
+
 }
