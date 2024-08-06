@@ -6,48 +6,22 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Program2 {
-
-    String path = "C:\\Windows\\Temp\\in.txt";
-    FileReader fr = null;
-    BufferedReader br = null;
+    public static void main(String[] args) {
+        String path = "C:\\Windows\\Temp\\in.txt";
 
 
-    try
-    {
-        try {
-            fr = new FileReader(path);
-        } catch (FileNotFoundException ex) {
-            throw new RuntimeException(ex);
-        }
-        br = new BufferedReader(fr);
-        String line = null;
-        try {
-            line = br.readLine();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
-
-        while (line != null) {
-            System.out.println(line);
-            line = br.readLine();
-        }
-    }
-    catch(IOException e){
-        System.out.println("Error: " + e.getMessage());
-    }
-    finally
-    {
-        try {
-            if (br != null) {
-                br.close();
+        try(BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String line = br.readLine();
+            while (line != null) {
+                System.out.println(line);
+                line = br.readLine();
             }
-            if (fr != null) {
-                fr.close();
-            }
-        } catch(IOException e) {
-
-            e.printStackTrace();
+        }
+        catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
+
+
 
