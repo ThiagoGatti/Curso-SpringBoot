@@ -3,6 +3,8 @@ package com.estudo.curso.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 @Entity
 @Table(name = "tb_user")
@@ -11,11 +13,18 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private long ID;
     private String name;
     private String email;
     private String phone;
     private String password;
+
+    private List<Order> orders = new ArrayList<>();
+
+    public List<Order> getOrders() {
+        return orders;
+    }
 
     public User() {
 
