@@ -26,7 +26,7 @@ public class Program {
 
         CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
 
-        
+
 
 
 
