@@ -1,6 +1,9 @@
 package Vehicle.services;
 
 import Vehicle.entities.CarRental;
+import Vehicle.entities.Invoice;
+
+import java.time.Duration;
 
 public class RentalService {
 
@@ -16,7 +19,20 @@ public class RentalService {
     }
 
     public void processInvoice(CarRental carRental) {
-        carRental.setInvoice(null);
+
+        double minutes = Duration.between(carRental.getStart(), carRental.getFinish()).toMinutes();
+        double hours = minutes/60;
+        double basicPayment;
+        if (hours <= 12.0) {
+
+            basicPayment = pricePerHour * Math.ceil(hours);
+        } else {
+            basicPayment = pricePerDay * Math.ceil(hours / 24);
+        }
+
+        double tax = taxService.tax(basicPayment);
+
+        carRental.setInvoice(new Invoice(basicPayment, tax));
 
     }
 }
