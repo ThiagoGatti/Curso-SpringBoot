@@ -2,6 +2,7 @@ package Vehicle.application;
 
 import Vehicle.entities.CarRental;
 import Vehicle.entities.Vehicle;
+import Vehicle.services.BrazilTaxService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -26,6 +27,9 @@ public class Program {
 
         CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
 
+        BrazilTaxService taxService = new BrazilTaxService();
+
+        System.out.println(taxService.tax(50.0));
 
 
 
