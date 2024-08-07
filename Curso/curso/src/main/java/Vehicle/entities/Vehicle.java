@@ -1,4 +1,4 @@
-package Vehicle;
+package Vehicle.entities;
 
 public class Vehicle {
 
