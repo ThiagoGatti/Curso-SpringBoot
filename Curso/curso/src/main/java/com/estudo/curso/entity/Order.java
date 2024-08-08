@@ -31,7 +31,7 @@ public class Order implements Serializable {
     public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
         this.id = id;
         this.moment = moment;
-        this.orderStatus = orderStatus;
+        setOrderStatus(orderStatus);
         this.client = client;
     }
 
@@ -56,7 +56,9 @@ public class Order implements Serializable {
     }
 
     public void setOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus.getCode();
+        if (orderStatus != null) {
+            this.orderStatus = orderStatus.getCode();
+        }
     }
 
     public User getClient() {
