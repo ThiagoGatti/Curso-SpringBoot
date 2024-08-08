@@ -1,4 +1,10 @@
 package com.estudo.curso.enums;
 
-public class OrderStatus {
+public enum OrderStatus {
+
+    WAITING_PAYMENT,
+    PAID,
+    SHIPPED,
+    DELIVERED,
+    CANCELED;
 }
