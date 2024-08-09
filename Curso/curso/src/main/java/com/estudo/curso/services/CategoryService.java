@@ -1,10 +1,7 @@
 package com.estudo.curso.services;
 
 import com.estudo.curso.entity.Category;
-import com.estudo.curso.entity.Order;
 import com.estudo.curso.repositories.CategoryRepository;
-import com.estudo.curso.repositories.OrderRepository;
-import com.estudo.curso.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
