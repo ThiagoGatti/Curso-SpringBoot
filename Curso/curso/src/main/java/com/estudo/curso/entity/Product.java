@@ -79,6 +79,8 @@ public class Product implements Serializable {
         return categories;
     }
 
+    @ManyToMany
+    @JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"))
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
